@@ -17,7 +17,8 @@ module.exports = {
 				where: {
 					username: req.body.username,
 					email: req.body.email,
-					password: req.body.password
+					password: req.body.password,
+					favoritos: []
 				},
 				username: req.body.username
 			})
@@ -55,6 +56,30 @@ module.exports = {
 					username: req.params.username
 				}
 			})
+			.then(usuarios => res.status(200).send(usuarios))
+			.catch(error => res.status(400).send(error))
+	},
+
+	login(req, res) {
+		return usuarios
+			.findOne({
+				where: {
+					email: req.body.email,
+					password: req.body.password
+				}
+			})
+			.then(usuarios => res.status(200).send(usuarios))
+			.catch(error => res.status(400).send(error))
+	},
+
+	addfav(req, res) {
+		return usuarios
+			.update(
+				{ 'favoritos': Sequelize.fn('array_append', Sequelize.col('favoritos'), req.params.idproducto) },
+				{ 'where':
+					{ 'username': req.params.username }
+				}
+				)
 			.then(usuarios => res.status(200).send(usuarios))
 			.catch(error => res.status(400).send(error))
 	}

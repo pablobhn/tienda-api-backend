@@ -17,11 +17,12 @@ module.exports = {
 		// SELECT * FROM usuarios WHERE id = 1 OR username = 'Lucas
 		const responseUsuario = usuarios.findOne({
 			where: {
-				[Op.or]: [{
-					username: req.body.usuario
-				}, {
-					id: req.body.usuario
-				}]
+				username: req.body.usuario
+				// [Op.or]: [{
+				// 	username: req.body.usuario
+				// }, {
+				// 	id: req.body.usuario
+				// }]
 			}
 		});
 
@@ -37,8 +38,7 @@ module.exports = {
 				return ventas
 					.create({
 						cliente_id: responses[0].id,
-						productos_id: req.body.productos_id,
-						cantidades: req.body.cantidades
+						productos: req.body.productos
 					})
 					.then(ventas => res.status(200).send(ventas))
 					.catch(error => res.status(400).send(error))

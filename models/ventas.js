@@ -15,8 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   ventas.init({
     cliente_id: DataTypes.INTEGER,
-    productos_id: DataTypes.STRING,
-    cantidades: DataTypes.STRING
+    productos: DataTypes.ARRAY(DataTypes.JSON)
   }, {
     sequelize,
     modelName: 'ventas',

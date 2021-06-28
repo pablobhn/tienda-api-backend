@@ -14,6 +14,8 @@ module.exports = (app) => {
 	app.post('/api/usuarios/create', usuariosController.create);
 	app.get('/api/usuarios/list', usuariosController.list);
 	app.get('/api/usuarios/find/username/:username', usuariosController.find);
+	app.post('/api/usuarios/login', usuariosController.login);
+	app.post('/api/usuarios/addfav/username/:username/idproducto/:idproducto', usuariosController.addfav);
 
 	// Games
 	app.post('/api/productos/create', productosController.create);

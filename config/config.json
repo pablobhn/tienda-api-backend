@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "user@tienda-api",
+    "username": "user@tienda-api-postgresql",
 		"password": "Pa$$word",
 		"database": "tienda",
-		"host": "tienda-api.mysql.database.azure.com",
-		"dialect": "mysql"
+		"host": "tienda-api-postgresql.postgres.database.azure.com",
+		"dialect": "postgres"
   },
   "test": {
     "username": "root",

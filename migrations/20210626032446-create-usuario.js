@@ -20,6 +20,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      favoritos: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

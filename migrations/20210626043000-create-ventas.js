@@ -12,13 +12,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      productos_id: {
+      productos: {
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      cantidades: {
-        allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(Sequelize.JSON)
       },
       createdAt: {
         allowNull: false,
