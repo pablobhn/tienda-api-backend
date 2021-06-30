@@ -82,5 +82,17 @@ module.exports = {
 				)
 			.then(usuarios => res.status(200).send(usuarios))
 			.catch(error => res.status(400).send(error))
+	},
+
+	rmfav(req, res) {
+		return usuarios
+			.update(
+				{ 'favoritos': Sequelize.fn('array_remove ', Sequelize.col('favoritos'), req.params.idproducto) },
+				{ 'where':
+					{ 'username': req.params.username }
+				}
+				)
+			.then(usuarios => res.status(200).send(usuarios))
+			.catch(error => res.status(400).send(error))
 	}
 }
