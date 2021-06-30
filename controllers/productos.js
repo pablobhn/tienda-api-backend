@@ -60,5 +60,16 @@ module.exports = {
 			})
 			.then(productos => res.status(200).send(productos))
 			.catch(error => res.status(400).send(error))
+	},
+
+	delete(req, res) {
+		return productos
+			.destroy({
+				where: {
+					id: req.params.id
+				}
+			})
+			.then(productos => res.status(200).send('true'))
+			.catch(error => res.status(400).send(error))
 	}
 }

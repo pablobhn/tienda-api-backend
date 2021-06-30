@@ -22,6 +22,7 @@ module.exports = (app) => {
 	app.post('/api/productos/create', productosController.create);
 	app.get('/api/productos/list', productosController.list);
 	app.get('/api/productos/find/id/:id', productosController.find);
+	app.post('/api/productos/delete/id/:id', productosController.delete);
 
 	// Ventas
 	app.post('/api/ventas/create', ventasController.create);
